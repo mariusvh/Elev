@@ -1,0 +1,186 @@
+\hypertarget{control_8h}{}\section{source/control.h File Reference}
+\label{control_8h}\index{source/control.\+h@{source/control.\+h}}
+
+
+Operations to control the elevators attributes.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{control_8h_a80e95c4ffbbd288b48631a63708f2157}{control\+\_\+update\+\_\+floor} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Tracks which floor the elevator e is currently on. \end{DoxyCompactList}\item 
+void \hyperlink{control_8h_ade1bf632ae09fe86085df8479d20b89b}{control\+\_\+secure\+\_\+range} ()\hypertarget{control_8h_ade1bf632ae09fe86085df8479d20b89b}{}\label{control_8h_ade1bf632ae09fe86085df8479d20b89b}
+
+\begin{DoxyCompactList}\small\item\em Changes motor direction of the elevator when it reaches the top/bottom floor. \end{DoxyCompactList}\item 
+void \hyperlink{control_8h_a81408505a5d46b6d1e6489cc28ad1271}{control\+\_\+update\+\_\+direction} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e, \hyperlink{elev_8h_a2256dfd58fecce253106f83fd2ed607f}{elev\+\_\+motor\+\_\+direction\+\_\+t} dirn)
+\begin{DoxyCompactList}\small\item\em Changes motor direction of the elevator, updates the elevators new direction, e.\+dir, and its previous direction e.\+prev\+Dir. \end{DoxyCompactList}\item 
+void \hyperlink{control_8h_a497296f4ed99115bd88b4affc8551a16}{control\+\_\+elev\+\_\+defined\+\_\+start} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\item 
+void \hyperlink{control_8h_af86c4c415dfafbde3eaa08802d7f37bf}{control\+\_\+update\+\_\+button\+\_\+lamps} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Checks if e.\+queue contains orders at the different buttons. Sets button-\/lamps on or off. \end{DoxyCompactList}\item 
+\hyperlink{elev_8h_a2256dfd58fecce253106f83fd2ed607f}{elev\+\_\+motor\+\_\+direction\+\_\+t} \hyperlink{control_8h_a1b3a69e013b4b2c65fdc2d72a4e161a0}{control\+\_\+floor\+\_\+inbetween} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Checks if the elevator is between two floors. Chooses next direction depending on previous direction or indicated current floor. \end{DoxyCompactList}\item 
+\hyperlink{elev_8h_a2256dfd58fecce253106f83fd2ed607f}{elev\+\_\+motor\+\_\+direction\+\_\+t} \hyperlink{control_8h_a515a76df77ed2b182f1f127f8c3ec5b1}{control\+\_\+choose\+\_\+direction} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e, int value)
+\begin{DoxyCompactList}\small\item\em Chooses the next direction of the elevator, depending on previous direction and next orders. \end{DoxyCompactList}\item 
+int \hyperlink{control_8h_a6939475968b3d136bf23d6e0b52ce4fa}{control\+\_\+stop\+\_\+at\+\_\+floor} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Checks if the elevator has orders in e.\+queue to execute at current floor, e.\+floor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Operations to control the elevators attributes. 
+
+
+
+\subsection{Function Documentation}
+\index{control.\+h@{control.\+h}!control\+\_\+choose\+\_\+direction@{control\+\_\+choose\+\_\+direction}}
+\index{control\+\_\+choose\+\_\+direction@{control\+\_\+choose\+\_\+direction}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+choose\+\_\+direction(elevator\+\_\+t $\ast$e, int value)}{control_choose_direction(elevator_t *e, int value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf elev\+\_\+motor\+\_\+direction\+\_\+t} control\+\_\+choose\+\_\+direction (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_a515a76df77ed2b182f1f127f8c3ec5b1}{}\label{control_8h_a515a76df77ed2b182f1f127f8c3ec5b1}
+
+
+Chooses the next direction of the elevator, depending on previous direction and next orders. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily D\+I\+R\+N\+\_\+\+UP}, {\ttfamily D\+I\+R\+N\+\_\+\+D\+O\+WN} or {\ttfamily D\+I\+R\+N\+\_\+\+S\+T\+OP}. 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file control.\+c.
+
+\index{control.\+h@{control.\+h}!control\+\_\+elev\+\_\+defined\+\_\+start@{control\+\_\+elev\+\_\+defined\+\_\+start}}
+\index{control\+\_\+elev\+\_\+defined\+\_\+start@{control\+\_\+elev\+\_\+defined\+\_\+start}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+elev\+\_\+defined\+\_\+start(elevator\+\_\+t $\ast$e)}{control_elev_defined_start(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+\_\+elev\+\_\+defined\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_a497296f4ed99115bd88b4affc8551a16}{}\label{control_8h_a497296f4ed99115bd88b4affc8551a16}
+Preparing elevator to start.\+Initializes elevator attributes. 
+\begin{DoxyParams}{Parameters}
+{\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file control.\+c.
+
+\index{control.\+h@{control.\+h}!control\+\_\+floor\+\_\+inbetween@{control\+\_\+floor\+\_\+inbetween}}
+\index{control\+\_\+floor\+\_\+inbetween@{control\+\_\+floor\+\_\+inbetween}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+floor\+\_\+inbetween(elevator\+\_\+t $\ast$e)}{control_floor_inbetween(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf elev\+\_\+motor\+\_\+direction\+\_\+t} control\+\_\+floor\+\_\+inbetween (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_a1b3a69e013b4b2c65fdc2d72a4e161a0}{}\label{control_8h_a1b3a69e013b4b2c65fdc2d72a4e161a0}
+
+
+Checks if the elevator is between two floors. Chooses next direction depending on previous direction or indicated current floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily D\+I\+R\+N\+\_\+\+UP}, {\ttfamily D\+I\+R\+N\+\_\+\+D\+O\+WN} or {\ttfamily D\+I\+R\+N\+\_\+\+S\+T\+OP}. 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file control.\+c.
+
+\index{control.\+h@{control.\+h}!control\+\_\+stop\+\_\+at\+\_\+floor@{control\+\_\+stop\+\_\+at\+\_\+floor}}
+\index{control\+\_\+stop\+\_\+at\+\_\+floor@{control\+\_\+stop\+\_\+at\+\_\+floor}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+stop\+\_\+at\+\_\+floor(elevator\+\_\+t $\ast$e)}{control_stop_at_floor(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}int control\+\_\+stop\+\_\+at\+\_\+floor (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_a6939475968b3d136bf23d6e0b52ce4fa}{}\label{control_8h_a6939475968b3d136bf23d6e0b52ce4fa}
+
+
+Checks if the elevator has orders in e.\+queue to execute at current floor, e.\+floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if {\ttfamily e.\+queue} has orders to stop at {\ttfamily e.\+floor}, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file control.\+c.
+
+\index{control.\+h@{control.\+h}!control\+\_\+update\+\_\+button\+\_\+lamps@{control\+\_\+update\+\_\+button\+\_\+lamps}}
+\index{control\+\_\+update\+\_\+button\+\_\+lamps@{control\+\_\+update\+\_\+button\+\_\+lamps}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+update\+\_\+button\+\_\+lamps(elevator\+\_\+t $\ast$e)}{control_update_button_lamps(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+\_\+update\+\_\+button\+\_\+lamps (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_af86c4c415dfafbde3eaa08802d7f37bf}{}\label{control_8h_af86c4c415dfafbde3eaa08802d7f37bf}
+
+
+Checks if e.\+queue contains orders at the different buttons. Sets button-\/lamps on or off. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file control.\+c.
+
+\index{control.\+h@{control.\+h}!control\+\_\+update\+\_\+direction@{control\+\_\+update\+\_\+direction}}
+\index{control\+\_\+update\+\_\+direction@{control\+\_\+update\+\_\+direction}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+update\+\_\+direction(elevator\+\_\+t $\ast$e, elev\+\_\+motor\+\_\+direction\+\_\+t dirn)}{control_update_direction(elevator_t *e, elev_motor_direction_t dirn)}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+\_\+update\+\_\+direction (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e, }
+\item[{{\bf elev\+\_\+motor\+\_\+direction\+\_\+t}}]{dirn}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_a81408505a5d46b6d1e6489cc28ad1271}{}\label{control_8h_a81408505a5d46b6d1e6489cc28ad1271}
+
+
+Changes motor direction of the elevator, updates the elevators new direction, e.\+dir, and its previous direction e.\+prev\+Dir. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator. \\
+\hline
+\mbox{\tt in}  & {\em dirn} & The elevators new motor direction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file control.\+c.
+
+\index{control.\+h@{control.\+h}!control\+\_\+update\+\_\+floor@{control\+\_\+update\+\_\+floor}}
+\index{control\+\_\+update\+\_\+floor@{control\+\_\+update\+\_\+floor}!control.\+h@{control.\+h}}
+\subsubsection[{\texorpdfstring{control\+\_\+update\+\_\+floor(elevator\+\_\+t $\ast$e)}{control_update_floor(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void control\+\_\+update\+\_\+floor (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{control_8h_a80e95c4ffbbd288b48631a63708f2157}{}\label{control_8h_a80e95c4ffbbd288b48631a63708f2157}
+
+
+Tracks which floor the elevator e is currently on. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator that is beeing tracked. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file control.\+c.
+

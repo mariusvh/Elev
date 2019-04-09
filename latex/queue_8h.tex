@@ -1,0 +1,237 @@
+\hypertarget{queue_8h}{}\section{source/queue.h File Reference}
+\label{queue_8h}\index{source/queue.\+h@{source/queue.\+h}}
+
+
+Operations to take care of the elevator orders. Defines the elevator, its states and its queue matrix.  
+
+
+{\ttfamily \#include \char`\"{}elev.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+Include dependency graph for queue.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structelevator}{elevator}
+\begin{DoxyCompactList}\small\item\em A structure to represent the elevator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{queue_8h_aa19be6305a5a4485e1e70de70ed7d677}{states} \hyperlink{queue_8h_a2053ff352471e2844cd5fc2724a390bd}{state\+\_\+t}\hypertarget{queue_8h_a2053ff352471e2844cd5fc2724a390bd}{}\label{queue_8h_a2053ff352471e2844cd5fc2724a390bd}
+
+\begin{DoxyCompactList}\small\item\em The elevators different states. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structelevator}{elevator} \hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t}\hypertarget{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{}\label{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}
+
+\begin{DoxyCompactList}\small\item\em A structure to represent the elevator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{queue_8h_aa19be6305a5a4485e1e70de70ed7d677}{states} \{ \hyperlink{queue_8h_aa19be6305a5a4485e1e70de70ed7d677afd6a0e4343048b10646dd2976cc5ad18}{I\+D\+LE}, 
+\hyperlink{queue_8h_aa19be6305a5a4485e1e70de70ed7d677aed3ef32890b6da0919b57254c5206c62}{M\+O\+VE}, 
+\hyperlink{queue_8h_aa19be6305a5a4485e1e70de70ed7d677a679ee5320d66c8322e310daeb2ee99b8}{S\+T\+OP}, 
+\hyperlink{queue_8h_aa19be6305a5a4485e1e70de70ed7d677a11915658ade106027bd75056b907539d}{D\+O\+O\+R\+\_\+\+O\+P\+EN}
+ \}\begin{DoxyCompactList}\small\item\em The elevators different states. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{queue_8h_a92ba96e7b791393627ecb9ddc8e510d1}{queue\+\_\+reset\+\_\+matrix} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Resets all orders in e.\+queue. Sets unavailable orders to -\/1. \end{DoxyCompactList}\item 
+void \hyperlink{queue_8h_ab0e6594b2911ce16013fd410ae811546}{queue\+\_\+update\+\_\+matrix} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Updates e.\+queue with new orders from elevator-\/panel. \end{DoxyCompactList}\item 
+void \hyperlink{queue_8h_a6cbf538c09bae56a58bf4774785157db}{queue\+\_\+print\+\_\+matrix} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Prints the matrix {\ttfamily e.\+queue}. \end{DoxyCompactList}\item 
+int \hyperlink{queue_8h_a718dec009a50e9ab93b8453f8053ed32}{queue\+\_\+any\+\_\+orders} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Checks if e.\+queue contains any orders. \end{DoxyCompactList}\item 
+int \hyperlink{queue_8h_af6bbf116c11afe0cf1d4e56285b915b8}{queue\+\_\+orders\+\_\+above} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Checks if e.\+queue contains any orders above its current floor, {\ttfamily e.\+floor}. \end{DoxyCompactList}\item 
+int \hyperlink{queue_8h_a43a3945ebc4aa6bf0ad7ad8f9de706df}{queue\+\_\+orders\+\_\+under} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Checks if e.\+queue contains any orders under its current floor, e.\+floor. \end{DoxyCompactList}\item 
+void \hyperlink{queue_8h_acabc91a83ae6d53bc36c71bfbb416c68}{queue\+\_\+delete\+\_\+executed\+\_\+orders} (\hyperlink{queue_8h_a7b321df48653e6963c7a00989c5bcb7f}{elevator\+\_\+t} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Deletes executed orders in e.\+queue at current floor, e.\+floor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Operations to take care of the elevator orders. Defines the elevator, its states and its queue matrix. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{queue.\+h@{queue.\+h}!states@{states}}
+\index{states@{states}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{states}{states}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf states}}\hypertarget{queue_8h_aa19be6305a5a4485e1e70de70ed7d677}{}\label{queue_8h_aa19be6305a5a4485e1e70de70ed7d677}
+
+
+The elevators different states. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+D\+LE@{I\+D\+LE}!queue.\+h@{queue.\+h}}\index{queue.\+h@{queue.\+h}!I\+D\+LE@{I\+D\+LE}}\item[{\em 
+I\+D\+LE\hypertarget{queue_8h_aa19be6305a5a4485e1e70de70ed7d677afd6a0e4343048b10646dd2976cc5ad18}{}\label{queue_8h_aa19be6305a5a4485e1e70de70ed7d677afd6a0e4343048b10646dd2976cc5ad18}
+}]When the elevator is in idle state. \index{M\+O\+VE@{M\+O\+VE}!queue.\+h@{queue.\+h}}\index{queue.\+h@{queue.\+h}!M\+O\+VE@{M\+O\+VE}}\item[{\em 
+M\+O\+VE\hypertarget{queue_8h_aa19be6305a5a4485e1e70de70ed7d677aed3ef32890b6da0919b57254c5206c62}{}\label{queue_8h_aa19be6305a5a4485e1e70de70ed7d677aed3ef32890b6da0919b57254c5206c62}
+}]When the elevator is moving. \index{S\+T\+OP@{S\+T\+OP}!queue.\+h@{queue.\+h}}\index{queue.\+h@{queue.\+h}!S\+T\+OP@{S\+T\+OP}}\item[{\em 
+S\+T\+OP\hypertarget{queue_8h_aa19be6305a5a4485e1e70de70ed7d677a679ee5320d66c8322e310daeb2ee99b8}{}\label{queue_8h_aa19be6305a5a4485e1e70de70ed7d677a679ee5320d66c8322e310daeb2ee99b8}
+}]When the elevator is in emergency stop state. \index{D\+O\+O\+R\+\_\+\+O\+P\+EN@{D\+O\+O\+R\+\_\+\+O\+P\+EN}!queue.\+h@{queue.\+h}}\index{queue.\+h@{queue.\+h}!D\+O\+O\+R\+\_\+\+O\+P\+EN@{D\+O\+O\+R\+\_\+\+O\+P\+EN}}\item[{\em 
+D\+O\+O\+R\+\_\+\+O\+P\+EN\hypertarget{queue_8h_aa19be6305a5a4485e1e70de70ed7d677a11915658ade106027bd75056b907539d}{}\label{queue_8h_aa19be6305a5a4485e1e70de70ed7d677a11915658ade106027bd75056b907539d}
+}]When the elevator opens the door. \end{description}
+\end{Desc}
+
+
+Definition at line 16 of file queue.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{queue.\+h@{queue.\+h}!queue\+\_\+any\+\_\+orders@{queue\+\_\+any\+\_\+orders}}
+\index{queue\+\_\+any\+\_\+orders@{queue\+\_\+any\+\_\+orders}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+any\+\_\+orders(elevator\+\_\+t $\ast$e)}{queue_any_orders(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}int queue\+\_\+any\+\_\+orders (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_a718dec009a50e9ab93b8453f8053ed32}{}\label{queue_8h_a718dec009a50e9ab93b8453f8053ed32}
+
+
+Checks if e.\+queue contains any orders. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if {\ttfamily e.\+queue} contains any orders, and 0 if not. 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file queue.\+c.
+
+\index{queue.\+h@{queue.\+h}!queue\+\_\+delete\+\_\+executed\+\_\+orders@{queue\+\_\+delete\+\_\+executed\+\_\+orders}}
+\index{queue\+\_\+delete\+\_\+executed\+\_\+orders@{queue\+\_\+delete\+\_\+executed\+\_\+orders}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+delete\+\_\+executed\+\_\+orders(elevator\+\_\+t $\ast$e)}{queue_delete_executed_orders(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void queue\+\_\+delete\+\_\+executed\+\_\+orders (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_acabc91a83ae6d53bc36c71bfbb416c68}{}\label{queue_8h_acabc91a83ae6d53bc36c71bfbb416c68}
+
+
+Deletes executed orders in e.\+queue at current floor, e.\+floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file queue.\+c.
+
+\index{queue.\+h@{queue.\+h}!queue\+\_\+orders\+\_\+above@{queue\+\_\+orders\+\_\+above}}
+\index{queue\+\_\+orders\+\_\+above@{queue\+\_\+orders\+\_\+above}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+orders\+\_\+above(elevator\+\_\+t $\ast$e)}{queue_orders_above(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}int queue\+\_\+orders\+\_\+above (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_af6bbf116c11afe0cf1d4e56285b915b8}{}\label{queue_8h_af6bbf116c11afe0cf1d4e56285b915b8}
+
+
+Checks if e.\+queue contains any orders above its current floor, {\ttfamily e.\+floor}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if {\ttfamily e.\+queue} contains any orders above {\ttfamily e.\+floor} , 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file queue.\+c.
+
+\index{queue.\+h@{queue.\+h}!queue\+\_\+orders\+\_\+under@{queue\+\_\+orders\+\_\+under}}
+\index{queue\+\_\+orders\+\_\+under@{queue\+\_\+orders\+\_\+under}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+orders\+\_\+under(elevator\+\_\+t $\ast$e)}{queue_orders_under(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}int queue\+\_\+orders\+\_\+under (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_a43a3945ebc4aa6bf0ad7ad8f9de706df}{}\label{queue_8h_a43a3945ebc4aa6bf0ad7ad8f9de706df}
+
+
+Checks if e.\+queue contains any orders under its current floor, e.\+floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if {\ttfamily e.\+queue} contains any orders under {\ttfamily e.\+floor}, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file queue.\+c.
+
+\index{queue.\+h@{queue.\+h}!queue\+\_\+print\+\_\+matrix@{queue\+\_\+print\+\_\+matrix}}
+\index{queue\+\_\+print\+\_\+matrix@{queue\+\_\+print\+\_\+matrix}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+print\+\_\+matrix(elevator\+\_\+t $\ast$e)}{queue_print_matrix(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void queue\+\_\+print\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_a6cbf538c09bae56a58bf4774785157db}{}\label{queue_8h_a6cbf538c09bae56a58bf4774785157db}
+
+
+Prints the matrix {\ttfamily e.\+queue}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file queue.\+c.
+
+\index{queue.\+h@{queue.\+h}!queue\+\_\+reset\+\_\+matrix@{queue\+\_\+reset\+\_\+matrix}}
+\index{queue\+\_\+reset\+\_\+matrix@{queue\+\_\+reset\+\_\+matrix}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+reset\+\_\+matrix(elevator\+\_\+t $\ast$e)}{queue_reset_matrix(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void queue\+\_\+reset\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_a92ba96e7b791393627ecb9ddc8e510d1}{}\label{queue_8h_a92ba96e7b791393627ecb9ddc8e510d1}
+
+
+Resets all orders in e.\+queue. Sets unavailable orders to -\/1. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file queue.\+c.
+
+\index{queue.\+h@{queue.\+h}!queue\+\_\+update\+\_\+matrix@{queue\+\_\+update\+\_\+matrix}}
+\index{queue\+\_\+update\+\_\+matrix@{queue\+\_\+update\+\_\+matrix}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{queue\+\_\+update\+\_\+matrix(elevator\+\_\+t $\ast$e)}{queue_update_matrix(elevator_t *e)}}]{\setlength{\rightskip}{0pt plus 5cm}void queue\+\_\+update\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf elevator\+\_\+t} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_ab0e6594b2911ce16013fd410ae811546}{}\label{queue_8h_ab0e6594b2911ce16013fd410ae811546}
+
+
+Updates e.\+queue with new orders from elevator-\/panel. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em e} & The elevator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file queue.\+c.
+
