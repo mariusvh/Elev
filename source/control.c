@@ -99,13 +99,14 @@ elev_motor_direction_t control_floor_inbetween(elevator_t *e) {
         if (e->queue[e->floor][BUTTON_CALL_UP] || e->queue[e->floor][BUTTON_COMMAND]) {
             return DIRN_DOWN;
         }
+
     }
-    if (e->prevDir == DIRN_UP) {
+    if (e->prevDir == DIRN_UP && (e->floor != 0 && e->floor != N_FLOORS-1)) {
         if (e->queue[e->floor][BUTTON_CALL_DOWN]|| e->queue[e->floor][BUTTON_CALL_UP] || e->queue[e->floor][BUTTON_COMMAND]) {
             return DIRN_DOWN;
         }
     }
-    if (e->prevDir == DIRN_DOWN) {
+    if (e->prevDir == DIRN_DOWN && (e->floor != 0 && e->floor != N_FLOORS-1)) {
         if (e->queue[e->floor][BUTTON_CALL_DOWN]|| e->queue[e->floor][BUTTON_CALL_UP] || e->queue[e->floor][BUTTON_COMMAND]) {
             return DIRN_UP;
         }

@@ -35,9 +35,7 @@ int main() {
           case IDLE:
             queue_update_matrix(&el);
 
-
             if (elev_get_stop_signal()) {
-                control_update_direction(&el, DIRN_STOP);
                 elev_set_stop_lamp(1);
                 if (elev_get_floor_sensor_signal() != -1) {
                     elev_set_door_open_lamp(1);
@@ -46,11 +44,12 @@ int main() {
                 printf("State: %d\n", el.state);
             }
             if (queue_any_orders(&el) && !control_stop_at_floor(&el)) {
-                control_update_direction(&el,control_choose_direction(&el,elev_get_floor_sensor_signal())); 
+                control_update_direction(&el,control_choose_direction(&el,elev_get_floor_sensor_signal()));
                 el.state = MOVE;
                 printf("State: %d\n", el.state);
             }
             if (control_stop_at_floor(&el)) {
+                elev_set_door_open_lamp(1);
                 el.state = DOOR_OPEN;
                 queue_print_matrix(&el);
                 printf("State: %d\n", el.state);
@@ -62,7 +61,7 @@ int main() {
             queue_update_matrix(&el);
 
             if (elev_get_stop_signal()) {
-                control_update_direction(&el, DIRN_STOP);//?
+                control_update_direction(&el, DIRN_STOP);
                 elev_set_stop_lamp(1);
                 el.state = STOP;
                 printf("State: %d\n", el.state);
@@ -76,8 +75,6 @@ int main() {
 
           case DOOR_OPEN:
             queue_update_matrix(&el);
-            elev_set_door_open_lamp(1);
-
 
             if (elev_get_stop_signal()) {
                 elev_set_stop_lamp(1);
@@ -105,6 +102,7 @@ int main() {
               elev_set_stop_lamp(0);
               if (elev_get_floor_sensor_signal() != -1 ) {
                   el.time = 0;
+                  elev_set_door_open_lamp(1);
                   el.state = DOOR_OPEN;
                   printf("State: %d\n", el.state);
               }
