@@ -51,13 +51,15 @@ Chooses the next direction of the elevator, depending on previous direction and 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em e} & The elevator. \\
 \hline
+\mbox{\tt in}  & {\em value} & Used to check if elevator is between floors. \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 {\ttfamily D\+I\+R\+N\+\_\+\+UP}, {\ttfamily D\+I\+R\+N\+\_\+\+D\+O\+WN} or {\ttfamily D\+I\+R\+N\+\_\+\+S\+T\+OP}. 
 \end{DoxyReturn}
 
 
-Definition at line 117 of file control.\+c.
+Definition at line 118 of file control.\+c.
 
 \index{control.\+h@{control.\+h}!control\+\_\+elev\+\_\+defined\+\_\+start@{control\+\_\+elev\+\_\+defined\+\_\+start}}
 \index{control\+\_\+elev\+\_\+defined\+\_\+start@{control\+\_\+elev\+\_\+defined\+\_\+start}!control.\+h@{control.\+h}}
@@ -119,7 +121,7 @@ Checks if the elevator has orders in e.\+queue to execute at current floor, e.\+
 \end{DoxyReturn}
 
 
-Definition at line 156 of file control.\+c.
+Definition at line 157 of file control.\+c.
 
 \index{control.\+h@{control.\+h}!control\+\_\+update\+\_\+button\+\_\+lamps@{control\+\_\+update\+\_\+button\+\_\+lamps}}
 \index{control\+\_\+update\+\_\+button\+\_\+lamps@{control\+\_\+update\+\_\+button\+\_\+lamps}!control.\+h@{control.\+h}}

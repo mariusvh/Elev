@@ -58,6 +58,7 @@ elev_motor_direction_t control_floor_inbetween(elevator_t *e);
  * @brief Chooses the next direction of the elevator,
  * depending on previous direction and next orders.
  * @param[in] e The elevator.
+ * @param[in] value Used to check if elevator is between floors.
  * @return @c DIRN_UP, @c DIRN_DOWN or @c DIRN_STOP.
  */
 elev_motor_direction_t control_choose_direction(elevator_t *e, int value);

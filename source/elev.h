@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief Wrapper for libComedi Elevator control. 
+ * @brief Wrapper for libComedi Elevator control.
  * These functions provides an interface to the elevators in the real time lab.
  * 2007, Martin Korsgaard.
  */
@@ -127,6 +127,7 @@ int elev_get_button_signal(elev_button_type_t button, int floor);
   @param value Non-zero value turns lamp on, 0 turns lamp off.
 */
 void elev_set_button_lamp(elev_button_type_t button, int floor, int value);
+
 
 
 
